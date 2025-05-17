@@ -12,6 +12,7 @@ import Project from './component/Project';
 import Contact from './component/Contact';
 import Footer from './component/Footer';
 import Design from './tentcal/Design';
+import Up from './component/Up';
 import './sass/Loader.scss';
 import './sass/main.scss';
 
@@ -112,6 +113,7 @@ function App() {
             <Lottie loop={true} animationData={loader} className="loaderAnimation" />
           </div>
         )}
+        <Up/>
       </header>
     </div>
   );
