@@ -1,0 +1,166 @@
+@mixin phone {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 501px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 50px;
+  height: 80vh;
+  z-index: 1;
+  background-color: #fff;
+
+  h1 {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .innercontact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    .formContent {
+      gap: 20px;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        input {
+          padding: 15px 5px;
+          margin: 10px 0;
+          width: 25vw;
+          border: 2px solid #000;
+          outline: none;
+          font-size: 1rem;
+          border-radius: 5px;
+
+          &.name:focus,
+          &.userPhone:focus,
+          &.email:focus {
+            border: 2px solid green;
+            outline: none;
+          }
+        }
+
+        textarea {
+          padding: 15px 5px;
+          margin: 10px 0;
+          width: 25vw;
+          height: 15vh;
+          border: 2px solid #000;
+          outline: none;
+          font-size: 1rem;
+          border-radius: 5px;
+
+          &.msg:focus {
+            border: 2px solid green;
+            outline: none;
+          }
+        }
+
+        button {
+          padding: 15px;
+          border-radius: 5px;
+          border: 2px solid #190482;
+          background: #190482;
+          color: #fff;
+          text-align: center;
+          transition: all 0.3s;
+
+          &:hover {
+            background: #fff;
+            color: #190482;
+          }
+        }
+      }
+    }
+
+    .animationContent {
+      @include phone {
+        display: none;
+      }
+    }
+  }
+
+  @include phone{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 15px;
+        height: fit-content;
+        .innercontact{
+            width: 100%;
+            .formContent{
+                width: 100%;
+                form{
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20px;
+                    input{
+                        padding: 15px 5px;
+                        width: 95%;
+                        border: 2px solid #000;
+                        outline: none;
+                        font-size: 1rem;
+                        border-radius: 5px;
+                    }
+                    textarea{
+                        padding: 15px 5px;
+                        width: 95%;
+                        height: 15vh;
+                        border: 2px solid #000;
+                        outline: none;
+                        font-size: 1rem;
+                        border-radius: 5px;
+                    }
+                    button{
+                        padding: 15px 5px;
+                        border-radius: 5px;
+                        border: 2px solid #190482;
+                        background: #190482;
+                        color: #fff;
+                        text-align: center;
+                        transition: all 0.3s;
+                        width: 100%;
+                    }
+                    button:hover{
+                        background: #fff;
+                        color: #190482;
+                    }
+                }
+            }
+        }
+    }
+}

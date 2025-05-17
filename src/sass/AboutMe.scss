@@ -1,0 +1,159 @@
+@mixin phone {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 501px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+.aboutme {
+  padding: 10px 250px;
+  height: fit-content;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .inneraboutme {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 4vw 0;
+    width: 100%;
+
+    .innerinneraboutme {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 100px;
+
+      img {
+        width: 300px;
+        border-radius: 10px;
+        border: 4px solid #fff;
+        object-fit: cover;
+        box-shadow: 0 0 5px rgba(128, 128, 128, 0.516);
+        filter: grayscale(1) brightness(1.4);
+        transition: all 0.3s;
+
+        &:hover {
+          transform: scale(1.115);
+          filter: none;
+        }
+      }
+
+      .inneraboutmetext {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: left;
+        gap: 10px;
+
+        .headeraboutmetext {
+          font-size: 2rem;
+        }
+
+        .subheaderaboutmetext {
+          font-size: 1.5rem;
+        }
+
+        .parheaderaboutmetext,
+        .pointheaderaboutmetext {
+          font-size: 1rem;
+        }
+
+        .pointheaderaboutmetext {
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .aboutme-table {
+            border-collapse: collapse;
+            margin-top: 10px;
+
+            td {
+                padding: 4px 0;
+                font-size: 1rem;
+                text-align: left;
+                vertical-align: top;
+            }
+
+            td:first-child {
+                white-space: nowrap;
+                width: 10px;
+                padding-right: 12px;
+            }
+        }
+
+        button {
+          margin: 10px 0;
+          background: #1b262c;
+          color: #fff;
+          padding: 15px;
+          width: 120px;
+          border: none;
+          border-radius: 5px;
+          transition: all 0.3s;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+
+          i {
+            transition: all 0.3s;
+          }
+
+          &:hover {
+            transform: scaleX(1.111115);
+            background: none;
+            color: #1b262c;
+            border: 3px solid #1b262c;
+
+            i {
+              padding: 0 1px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ✅ Phone-specific overrides only
+  @include phone {
+    padding: 10px 25px;
+
+    .inneraboutme {
+      .innerinneraboutme {
+        flex-direction: column;
+        align-items: center;
+        gap: 2vh;
+
+        img {
+          width: 50vw;
+          filter: brightness(1.2);
+          &:hover {
+                transform: none;
+                filter: none;
+            }
+        }
+
+      }
+    }
+  }
+}

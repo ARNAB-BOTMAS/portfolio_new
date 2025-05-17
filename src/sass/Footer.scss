@@ -1,0 +1,179 @@
+@mixin phone {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 501px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #272727;
+    color: #fff;
+    position: relative;
+    padding: 20px 100px;
+    .bottomFooter {
+        padding: 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            color: red;
+            font-size: 1.25rem;
+            // animation: heartbeet 0.5s ease-in-out infinite;
+            // transition: all 0.5s ease-in-out;
+        }
+    }
+
+    @keyframes heartbeet {
+        0%, 100% {
+            font-size: 1rem;
+        }
+        50% {
+            font-size: 1.25rem;
+        }
+    }
+
+
+    @keyframes heartbeet {
+        0%, 100% {
+            font-size: 1rem;
+        }
+        50% {
+            font-size: 1.25rem;
+        }
+    }
+
+    .innerFooter{
+        display: flex;
+        // align-items: center;
+        justify-content: center;
+        // padding: 20px;
+        padding: 20px 0;
+        gap: 50px;
+        flex-wrap: wrap;
+        // width: 100%;
+        border-bottom: 1px solid gray;
+        .portfolio{
+            width: 30%;
+        }
+        .portfolio:nth-child(2){
+            width: 20%;
+            li{
+                list-style: none;
+                a{
+                    display: inline-flex;
+                    text-decoration: none;
+                    align-items: center;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                }
+                :hover{
+                    color: #FFBB5C;
+                }
+            }
+        }
+        .portfolio:nth-child(3){
+            span{
+                display: inline-flex;
+                align-items: center;
+                margin-right: 15px;
+                color: #FFBB5C;
+            }
+            .links{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                a{
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                    transition: all 0.3s ease-in-out;
+                    :hover{
+                        font-size: 1.25rem;
+                        color: #5f5a5a;
+                    // border: 3px solid #fff;
+                    }
+                }
+            }
+        }
+
+    }
+
+    @include phone{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: #272727;
+        color: #fff;
+        position: relative;
+        padding: 10px 20px;
+        .botttomFooter{
+            padding: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .innerFooter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            border-bottom: 1px solid gray;
+            gap: 0; // Add this line to remove the gap
+            .portfolio {
+                width: 100%;
+            }
+            .portfolio:nth-child(2){
+                width: 100%;
+                li{
+                    list-style: none;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                }
+                li:hover{
+                    color: #FFBB5C;
+                }
+            }
+            .portfolio:nth-child(3){
+                span{
+                    // margin-right: 15px;
+                    color: #FFBB5C;
+                }
+                .links{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    a{
+                        color: #fff;
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                    }
+
+                }
+            }
+
+        }
+    }
+}

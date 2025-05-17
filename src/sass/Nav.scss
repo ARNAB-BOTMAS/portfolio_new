@@ -1,0 +1,143 @@
+@mixin phone {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 501px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+nav {
+  display: flex;
+  padding: 5px 0;
+  height: 6.3vh;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s;
+
+  .logo {
+    padding-left: 100px;
+
+    img {
+      width: 100px;
+      object-fit: cover;
+    }
+  }
+
+  .link {
+    padding-right: 100px;
+
+    li {
+      display: inline;
+      list-style: none;
+
+      a{
+        padding: 16.5px 15px;
+        height: 6.3vh;
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-decoration: none;
+        transition: all 0.3s ease-out;
+        color: #000;
+        &:hover {
+        color: #fd5949;
+        }
+
+        &.activeSection {
+          color: #fd5949;
+          border-bottom: 2px solid #fd5949;
+        }
+      }
+    }
+  }
+
+  @include phone {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+
+    .innerNavbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: #fff;
+
+      .logo {
+        padding-left: 15px;
+      }
+
+      .hamburgs {
+        display: block;
+        cursor: pointer;
+        padding-right: 15px;
+
+        .bar {
+          display: block;
+          width: 25px;
+          height: 3px;
+          margin: 5px auto;
+          transition: all 0.3s ease-in-out;
+          background: #000;
+        }
+
+        &.active .bar:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        &.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        &.active .bar:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    }
+
+    .link {
+        width: 80%;
+        position: absolute;
+        padding: 15px 0;
+        background: #fff;
+        height: 93.7vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        left: -100%;
+        top: 6.3vh;
+        transition: all 0.3s;
+
+        li {
+            font-size: 1rem;
+            list-style: none;
+            cursor: pointer;
+            margin: 0;         // ⬅️ removes extra vertical space
+            padding: 10px 0;   // ⬅️ optional
+        }
+
+        .activeSection {
+            color: #fd5949;
+            border-bottom: 2px solid #fd5949;
+        }
+
+        &.active {
+            left: 0;
+        }
+    }
+
+  }
+}

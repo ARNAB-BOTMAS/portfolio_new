@@ -1,0 +1,184 @@
+@mixin phone {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 501px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+.header {
+  height: 100vh;
+  padding: 20px 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  .innerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: none;
+    z-index: 999;
+    gap: 50px;
+
+    .innerImg {
+      img {
+        max-width: 30vw;
+        width: 100%;
+        object-fit: cover;
+        animation: animate 5s ease-in-out infinite;
+        transition: all 5s ease-in-out;
+        box-shadow: 0 5px 5px 5px rgba(13, 110, 253, 0.284);
+      }
+
+      @keyframes animate {
+        0%, 100% {
+          border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        50% {
+          border-radius: 20% 60% 70% 40% / 50% 60% 30% 60%;
+        }
+      }
+    }
+
+    .innerText {
+      display: flex;
+      flex-direction: column;
+
+      .innerHeaderFirst,
+      .innerHeaderSecond {
+        font-size: 4rem;
+      }
+
+      .innerHeaderThrid {
+        font-size: 1.8rem;
+
+        .innerinnerHeaderThrid {
+          font-size: 1.8rem;
+        }
+      }
+
+      button {
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+        width: 25%;
+        padding: 15px;
+        background: #190482;
+        color: #fff;
+        font-weight: bold;
+        object-fit: cover;
+        box-shadow: 0 0 15px #0000008d;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        span {
+          display: inline-flex;
+          align-items: center;
+
+          .rightIcon {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+          }
+        }
+      }
+
+      button:hover {
+        transform: scale(1.15);
+
+        span .rightIcon {
+          padding: 0 5px;
+          transform: rotate(90deg);
+        }
+      }
+
+      .profileLink {
+        display: flex;
+        padding-top: 10px;
+        gap: 10px;
+        font-size: x-large;
+
+        a {
+          color: #000;
+          transition: all 0.3s;
+
+          &:hover {
+            transform: scale(1.15);
+          }
+        }
+      }
+    }
+  }
+
+  @include phone {
+    padding: 0px 30px;
+
+    .innerHeader {
+      flex-direction: column;
+      gap: 30px;
+
+      .innerImg {
+        img {
+          max-width: 100vw;
+          width: 100%;
+          object-fit: cover;
+          animation: animate 5s ease-in-out infinite;
+          transition: all 5s ease-in-out;
+          box-shadow: 0 5px 5px 5px rgba(13, 110, 253, 0.284);
+        }
+      }
+
+      .innerText {
+        width: 100%;
+
+        .innerHeaderFirst,
+        .innerHeaderSecond {
+          font-size: 2rem;
+        }
+
+        .innerHeaderThrid {
+          font-size: 1rem;
+
+          .innerinnerHeaderThrid {
+            font-size: 1rem;
+          }
+        }
+
+        button {
+          width: 30vw;
+          padding: 15px;
+          font-size: 1rem;
+          box-shadow: 0 0 15px #0000008d;
+        }
+
+        // Remove hover effect on phone
+        button:hover {
+          transform: none;
+        }
+
+        .profileLink {
+          display: flex;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}
