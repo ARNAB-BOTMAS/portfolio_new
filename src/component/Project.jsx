@@ -1,6 +1,11 @@
 import '../sass/Project.scss';
 
 const Project = ({ project }) => {
+  const viewMore = () => {
+    window.open("https://github.com/ARNAB-BOTMAS", "_blank");
+
+    // window.location.href = "https://github.com/ARNAB-BOTMAS";
+  };
   return (
     <div className="project" id="project">
       <h1>Projects</h1>
@@ -33,7 +38,7 @@ const Project = ({ project }) => {
           </section>
         ))}
       </div>
-      <button className="viewmore">View More</button>
+      <button className="viewmore" onClick={viewMore}>View More</button>
     </div>
   );
 };
